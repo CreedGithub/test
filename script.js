@@ -43,7 +43,7 @@ let cart = [
     }
 ];
 
-let applyPromotion = (article, quantity) => {
+exports.applyPromotion = (article, quantity, offers) => {
     let findOffer = offers.find(val => val.article_id === article.id);
     if (undefined === findOffer) {
         return quantity * article.price;
@@ -57,12 +57,13 @@ let applyPromotion = (article, quantity) => {
     return discountQuantity * article.price;
 };
 
-let calculationPrice = () => {
+exports.calculationPrice = (cart, offers) => {
     let price = 0;
     cart.forEach(el => {
         let article = articles.find(v => v.id === el.article_id);
-        price += applyPromotion(article, el.quantity);
+        price += this.applyPromotion(article, el.quantity, offers);
     })
     return price;
 };
-console.log(calculationPrice());
+
+console.log(this.calculationPrice(cart, offers));
