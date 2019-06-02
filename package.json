@@ -4,6 +4,7 @@
   "description": "",
   "main": "script.js",
   "scripts": {
+    "start": "node script.js",
     "test": "./node_modules/.bin/mocha"
   },
   "repository": {
