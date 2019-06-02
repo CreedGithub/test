@@ -1,4 +1,4 @@
-let articles = [
+exports.articles = [
     {
         id: 1,
         name: "Apple",
@@ -15,7 +15,7 @@ let articles = [
         price: 0.8
     }];
 
-let offers = [
+exports.offers = [
     {
         article_id: 1,
         buy: 2, // 2 buy
@@ -28,7 +28,7 @@ let offers = [
     }
 ]; 
 
-let cart = [
+exports.cart = [
     {
         article_id: 1,
         quantity: 4
@@ -60,10 +60,10 @@ exports.applyPromotion = (article, quantity, offers) => {
 exports.calculationPrice = (cart, offers) => {
     let price = 0;
     cart.forEach(el => {
-        let article = articles.find(v => v.id === el.article_id);
+        let article = this.articles.find(v => v.id === el.article_id);
         price += this.applyPromotion(article, el.quantity, offers);
     })
     return price;
 };
 
-console.log(this.calculationPrice(cart, offers));
+console.log(this.calculationPrice(this.cart, this.offers));
