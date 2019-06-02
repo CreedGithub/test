@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     environment:
-        IMAGE_NAME: creed/node-building-on-ci
+        IMAGE_NAME: creedevops/klib
     docker:
       # specify the version you desire here
       - image: circleci/node:10.0
